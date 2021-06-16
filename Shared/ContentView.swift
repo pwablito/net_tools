@@ -9,8 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+           SendView()
+             .tabItem {
+                Image(systemName: "arrow.up")
+                Text("Send")
+              }
+            ReceiveView()
+              .tabItem {
+                 Image(systemName: "arrow.down")
+                 Text("Receive")
+               }
+             ProxyView()
+               .tabItem {
+                  Image(systemName: "arrow.up.arrow.down")
+                  Text("Proxy")
+                }
+        }
     }
 }
 
