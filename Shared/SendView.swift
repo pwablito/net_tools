@@ -9,7 +9,45 @@ import Foundation
 import SwiftUI
 
 struct SendView: View {
-    var body: some View {
-        Text("This is the send view")
+    @State var response_text = "Nothing yet..."
+    @State var url_text = "test.com"
+    
+    func fetch_content() {
+        response_text = "Loading..."
+        let url = URL(string: "https://\(url_text)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                response_text = "Something went wrong: \(error.localizedDescription)"
+            } else if let data = data {
+                response_text = String(data: data, encoding: .utf8)!
+                
+            } else {
+                response_text = "Something unexpected happened"
+            }
+        }
+        task.resume()
     }
+    
+    var body: some View {
+        VStack {
+            TextField("Enter url", text: $url_text)
+                .padding()
+            
+            Button {
+                fetch_content()
+            } label: {
+                Text("Send")
+            }
+            .buttonStyle(DefaultButtonStyle())
+            .padding()
+            ScrollView {
+                Text("\(response_text)").padding()
+            }
+        }
+    }
+
 }
