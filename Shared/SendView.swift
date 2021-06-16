@@ -10,11 +10,11 @@ import SwiftUI
 
 struct SendView: View {
     @State var response_text = "Nothing yet..."
-    @State var url_text = "test.com"
+    @State var url_text = "https://test.com"
     
     func fetch_content() {
         response_text = "Loading..."
-        let url = URL(string: "https://\(url_text)")!
+        let url = URL(string: url_text)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
@@ -24,7 +24,6 @@ struct SendView: View {
                 response_text = "Something went wrong: \(error.localizedDescription)"
             } else if let data = data {
                 response_text = String(data: data, encoding: .utf8)!
-                
             } else {
                 response_text = "Something unexpected happened"
             }
@@ -34,18 +33,20 @@ struct SendView: View {
     
     var body: some View {
         VStack {
-            TextField("Enter url", text: $url_text)
+            HStack {
+                TextField("Enter url", text: $url_text)
                 .padding()
             
-            Button {
-                fetch_content()
-            } label: {
-                Text("Send")
+                Button {
+                    fetch_content()
+                } label: {
+                    Text("Send")
+                }
+                .buttonStyle(DefaultButtonStyle())
+                .padding()
             }
-            .buttonStyle(DefaultButtonStyle())
-            .padding()
             ScrollView {
-                Text("\(response_text)").padding()
+                Text(response_text).padding()
             }
         }
     }
