@@ -11,19 +11,29 @@ struct ContentView: View {
     var body: some View {
         TabView {
            SendView()
-             .tabItem {
-                Image(systemName: "arrow.up")
-                Text("Send")
-              }
+                .tabItem {
+                    Image(systemName: "arrow.up")
+                    Text("Send")
+                }
             ReceiveView()
-              .tabItem {
-                 Image(systemName: "arrow.down")
-                 Text("Receive")
-               }
+                .tabItem {
+                    Image(systemName: "arrow.down")
+                    Text("Receive")
+                }
              ProxyView()
+                .tabItem {
+                    Image(systemName: "arrow.up.arrow.down")
+                    Text("Proxy")
+                }
+            DNSView()
                .tabItem {
-                  Image(systemName: "arrow.up.arrow.down")
-                  Text("Proxy")
+                    Image(systemName: "magnifyingglass")
+                    Text("DNS")
+                }
+            DOSView()
+                .tabItem {
+                    Image(systemName: "stop.circle")
+                    Text("DOS")
                 }
         }
     }
