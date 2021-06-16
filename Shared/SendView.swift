@@ -18,7 +18,10 @@ struct SendView: View {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
-        let session = URLSession.shared
+        let config = URLSessionConfiguration.default
+        config.requestCachePolicy = .reloadIgnoringCacheData
+        config.urlCache = nil
+        let session = URLSession.init(configuration: config)
         let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 response_text = "Something went wrong: \(error.localizedDescription)"

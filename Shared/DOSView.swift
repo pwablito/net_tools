@@ -11,7 +11,7 @@ import SwiftUI
 struct DOSView: View {
     @State var server_url = "https://test.com"
     @State var status_text = ""
-    @State private var num_requests = 1
+    @State private var num_requests = 0
     @State private var requests_made = 0
     @State private var num_responses = 0
     @State private var num_errors = 0
@@ -31,7 +31,10 @@ struct DOSView: View {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
-        let session = URLSession.shared
+        let config = URLSessionConfiguration.default
+        config.requestCachePolicy = .reloadIgnoringCacheData
+        config.urlCache = nil
+        let session = URLSession.init(configuration: config)
         let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 status_text = "Something went wrong: \(error.localizedDescription)"
@@ -51,7 +54,7 @@ struct DOSView: View {
             .padding()
             HStack {
                 Picker("Number of requests to make", selection: $num_requests) {
-                    ForEach(1...1000, id:\.self) {
+                    ForEach(0...1000, id:\.self) {
                         Text("\($0)")
                     }
                 }
