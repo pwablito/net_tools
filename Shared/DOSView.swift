@@ -32,10 +32,7 @@ struct DOSView: View {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
-        let config = URLSessionConfiguration.default
-        config.requestCachePolicy = .reloadIgnoringCacheData
-        config.urlCache = nil
-        let session = URLSession.init(configuration: config)
+        let session = create_session()
         let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 status_text = "Something went wrong: \(error.localizedDescription)"

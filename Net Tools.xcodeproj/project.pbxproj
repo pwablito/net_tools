@@ -25,6 +25,8 @@
 		DA87FC242679ED3000E6D32D /* DNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87FC222679ED3000E6D32D /* DNSView.swift */; };
 		DA87FC262679ED3B00E6D32D /* DOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87FC252679ED3B00E6D32D /* DOSView.swift */; };
 		DA87FC272679ED3B00E6D32D /* DOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87FC252679ED3B00E6D32D /* DOSView.swift */; };
+		DAE80EB3267B29B000DCC073 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE80EB2267B29B000DCC073 /* Network.swift */; };
+		DAE80EB4267B29B000DCC073 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE80EB2267B29B000DCC073 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,7 @@
 		DA87FC1F2679E03000E6D32D /* ProxyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyView.swift; sourceTree = "<group>"; };
 		DA87FC222679ED3000E6D32D /* DNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSView.swift; sourceTree = "<group>"; };
 		DA87FC252679ED3B00E6D32D /* DOSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOSView.swift; sourceTree = "<group>"; };
+		DAE80EB2267B29B000DCC073 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,7 @@
 				DA87FC1F2679E03000E6D32D /* ProxyView.swift */,
 				DA87FC222679ED3000E6D32D /* DNSView.swift */,
 				DA87FC252679ED3B00E6D32D /* DOSView.swift */,
+				DAE80EB2267B29B000DCC073 /* Network.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -330,6 +334,7 @@
 			files = (
 				DA87FC262679ED3B00E6D32D /* DOSView.swift in Sources */,
 				DA87FC232679ED3000E6D32D /* DNSView.swift in Sources */,
+				DAE80EB3267B29B000DCC073 /* Network.swift in Sources */,
 				DA87FC072679D7C500E6D32D /* ContentView.swift in Sources */,
 				DA87FC052679D7C500E6D32D /* Net_ToolsApp.swift in Sources */,
 				DA87FC1D2679E00B00E6D32D /* ReceiveView.swift in Sources */,
@@ -344,6 +349,7 @@
 			files = (
 				DA87FC272679ED3B00E6D32D /* DOSView.swift in Sources */,
 				DA87FC242679ED3000E6D32D /* DNSView.swift in Sources */,
+				DAE80EB4267B29B000DCC073 /* Network.swift in Sources */,
 				DA87FC082679D7C500E6D32D /* ContentView.swift in Sources */,
 				DA87FC062679D7C500E6D32D /* Net_ToolsApp.swift in Sources */,
 				DA87FC1E2679E00B00E6D32D /* ReceiveView.swift in Sources */,
