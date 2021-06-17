@@ -16,10 +16,11 @@ struct DOSView: View {
     @State private var num_responses = 0
     @State private var num_errors = 0
     
-    func make_requests() {
+    func start_attack() {
         num_responses = 0
         requests_made = 0
         num_errors = 0
+        status_text = ""
         while requests_made != num_requests {
             requests_made += 1
             make_request()
@@ -59,7 +60,7 @@ struct DOSView: View {
                     }
                 }
                 Button {
-                    make_requests()
+                    start_attack()
                 } label: {
                     Text("Start")
                 }
