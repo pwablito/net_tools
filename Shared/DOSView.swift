@@ -17,13 +17,17 @@ struct DOSView: View {
     @State private var num_errors = 0
     
     func start_attack() {
-        num_responses = 0
-        requests_made = 0
-        num_errors = 0
-        status_text = ""
-        while requests_made != num_requests {
-            requests_made += 1
-            make_request()
+        if server_url != "" {
+            num_responses = 0
+            requests_made = 0
+            num_errors = 0
+            status_text = ""
+            while requests_made != num_requests {
+                requests_made += 1
+                make_request()
+            }
+        } else {
+            status_text = "Error: Please enter a url first"
         }
     }
     
